@@ -36,7 +36,7 @@ let flashcardFormat = {
                     children: [
                         {
                             type: "fc-tag",
-                            children: [{text: " New Tag "}]
+                            children: [{text: "New Tag"}]
                         }
                     ]
                 },
@@ -196,7 +196,7 @@ const withFlashcards = editor => {
             if (table) {
                 const newTag = {
                     type: "fc-tag",
-                    children: [{text:" New Tag "}]
+                    children: [{text:"New Tag"}]
                 }
                 insertNode(newTag)
                 return
@@ -317,7 +317,9 @@ const Toolbar = () => {
             let allInOne = ""
             allInOne += fc.querySelector(".fcFront").textContent + "\t"
             allInOne += fc.querySelector(".fcBack").textContent + "\t"
-            // allInOne += fc.querySelector(".fc-tagList").textContent + "\t"
+            let tagList = Array.from(fc.querySelectorAll(".fcTag"))
+            allInOne += tagList.map(n=>n.textContent).join(",")
+            console.log(allInOne)
             textfcList.push(allInOne)
         })
         // Final download command.
@@ -331,10 +333,18 @@ const Toolbar = () => {
             let text = e.target.result
             text.split("\n").forEach(textfc => {
                 console.log(textfc)
-                let [textfront, textback] = textfc.split("\t")
+                let [textfront, textback, texttags] = textfc.split("\t")
                 console.log(textfc)
                 console.log(textfront)
                 console.log(textback)
+                console.log(texttags)
+                let turnInto = (n) => {
+                    let a = {}
+                    a.type = "fc-tag"
+                    a.children = [{text: n}]
+                    return a
+                }
+                texttags = texttags.split(",").map((n)=>turnInto(n))
                 let newfc = {
                     type: "fc-container",
                     children: [
@@ -343,12 +353,7 @@ const Toolbar = () => {
                             children: [
                                 {
                                     type: "fc-tag-list",
-                                    children: [
-                                        {
-                                            type: "fc-tag",
-                                            children: [{text: " New Tag "}]
-                                        }
-                                    ]
+                                    children: texttags
                                 },
                                 {
                                     type: "fc-front",
