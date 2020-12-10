@@ -1,38 +1,130 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+li{
+  margin-left: 20px;
+}
+
 .App {
-  text-align: center;
+  display:flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.textEditor{
+  width: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* .editorToolbar {
+  position: fixed;
+  display:flex;
+  flex-direction: column;
+  left: 0px;
+  top: 30%;
+  height: 500px;
+  width: 70px;
+} */
+.editorToolbar {
+  position: fixed;
+  display:flex;
+  flex-direction: column;
+  left: 0px;
+  top: 0;
+  width: 100%;
+  height:60px;
 }
-
-.App-header {
-  background-color: #282c34;
+.fileSettings, .topRow{
+  /* background-color: lightgoldenrodyellow; */
+  background-color: #DCD9D4;
+ background-image: linear-gradient(to bottom, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), radial-gradient(at 50% 0%, rgba(255,255,255,0.10) 0%, rgba(0,0,0,0.50) 50%);
+ background-blend-mode: soft-light,screen;
+  padding: 5px;
+  border-bottom: solid black 1px;
+}
+.bottomRow{
+  position: fixed;
+  display:flex;
+  flex-direction: column;
+  left: 0px;
+  top: 50%;
+  height: 500px;
+  width: 60px;
+}
+.textEntryDocument{
+  margin-left: 70px;
+  margin-top: 100px;
+  padding: 45px;
+  width: 60%;
   min-height: 100vh;
-  display: flex;
+  background-color: white;
+}
+.infobar{
+  position: fixed;
+  display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  right: 0;
+  top:0;
+  height: 100vh;
+  width: 200px;
+  /* background-image: linear-gradient(to top, #c79081 0%, #cc9186 100%); */
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  border: solid black 1px;
+  padding: 5px;
+}
+.infobarHeader{
+  margin-top:10px;
+  font-weight: bold;
+}
+.infobarContent>div{
+  margin-top: 10px;
+  font-size: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* Flashcard Styling */
+.fcContainer{
+  display: "flex";
+  flex-direction: column;
+  /* width: 100%; */
+  min-height: 220px;
+  /* background-color: pink; */
+}
+.fcTagList{
+  min-height: 20px;
+  margin: 5px;
+  padding: 3px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.fcTag{
+  border: solid black 1px;
+  margin: 1px;
+}
+.fcInfo{
+  display: "flex";
+  flex-direction: column;
+  width:100%;
+  min-height: 200px;
+  border: solid black 1px;
+}
+.fcFront{
+  min-height: 100px;
+  display: flex;
+  padding: 3px;
+  /* background-color: lightgray; */
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+.fcBack{
+  min-height: 100px;
+  display: flex;
+  padding: 3px;
+  /* background-color: lightgreen; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hide{
+  display:none;
 }
