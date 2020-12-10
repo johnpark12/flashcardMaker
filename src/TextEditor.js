@@ -176,6 +176,7 @@ const withFlashcards = editor => {
               }
         
               deleteBackward(...args)
+              return
           }
         }
     
@@ -464,6 +465,8 @@ const Infobar = props => {
                 <div>Mnemonics are helpful for summary flashcards.</div>
                 <div>Helper questions can come from textbook questions with clear steps to solve the problem on the back.</div>
                 <div>Definition flashcards should have a single word on the front and the definition on the back.</div>
+                <div>Some flashcards can also be reversed front to back to easily create additional flashcards.</div>
+                <div>The front can be a fill in the blank with the back having the word.</div>
             </div>
         </div>
     )
